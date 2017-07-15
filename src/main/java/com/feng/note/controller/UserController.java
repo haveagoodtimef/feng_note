@@ -34,6 +34,7 @@ import com.feng.note.util.JsonResult;
  * 2017年7月15日
  */
 @Controller
+@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
@@ -49,7 +50,7 @@ public class UserController {
 	@RequestMapping("/login")
 	public JsonResult<User> login(HttpServletRequest request,HttpServletResponse response) {
 		String name1 = request.getParameter("name");
-		String passwrod = request.getParameter("passwrod");
+		String passwrod = request.getParameter("password");
 		System.out.println(name1);
 		System.out.println(passwrod);
 		User user = userService.userLogin(name1, passwrod);
