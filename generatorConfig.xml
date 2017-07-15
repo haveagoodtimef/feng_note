@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+ <!-- 默认生成没有这个,必须加上. -->
+  <classPathEntry  
+        location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.2\mysql-connector-java-5.1.2.jar" />  
+  <context id="context1">
+  
+    <commentGenerator>  
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->  
+            <property name="suppressAllComments" value="true"/>  
+     </commentGenerator>  
+  
+    <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/feng_note" driverClass="com.mysql.jdbc.Driver" password="123456" userId="root" />
+    <!-- 生成模型的包名和位置 -->  
+    <javaModelGenerator targetPackage="com.feng.note.entity" targetProject="feng_note/src/main/java" />
+    <!-- 生成的映射文件报名和位置 -->  
+    <sqlMapGenerator targetPackage="com.feng.note.dao" targetProject="feng_note/src/main/java" />
+    <!-- 生成DAO的包名和位置 --> 
+    <javaClientGenerator targetPackage="com.feng.note.dao" targetProject="feng_note/src/main/java" type="XMLMAPPER" />
+    <!-- 要生成的那些表(更改tableName 和domainObjectName 就可以了) --> 
+    <table schema="" tableName="cn_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+    enableSelectByExample="false" selectByExampleQueryId="false">
+      
+    </table>
+  </context>
+</generatorConfiguration>

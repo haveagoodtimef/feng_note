@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feng.note.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.feng.note.entity.User">
+    <id column="cn_user_id" jdbcType="VARCHAR" property="cnUserId" />
+    <result column="cn_user_name" jdbcType="VARCHAR" property="cnUserName" />
+    <result column="cn_user_password" jdbcType="VARCHAR" property="cnUserPassword" />
+    <result column="cn_user_token" jdbcType="VARCHAR" property="cnUserToken" />
+    <result column="cn_user_nick" jdbcType="VARCHAR" property="cnUserNick" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cn_user_id, cn_user_name, cn_user_password, cn_user_token, cn_user_nick
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cn_user
+    where cn_user_id = #{cnUserId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from cn_user
+    where cn_user_id = #{cnUserId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.feng.note.entity.User">
+    insert into cn_user (cn_user_id, cn_user_name, cn_user_password, 
+      cn_user_token, cn_user_nick)
+    values (#{cnUserId,jdbcType=VARCHAR}, #{cnUserName,jdbcType=VARCHAR}, #{cnUserPassword,jdbcType=VARCHAR}, 
+      #{cnUserToken,jdbcType=VARCHAR}, #{cnUserNick,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.feng.note.entity.User">
+    insert into cn_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cnUserId != null">
+        cn_user_id,
+      </if>
+      <if test="cnUserName != null">
+        cn_user_name,
+      </if>
+      <if test="cnUserPassword != null">
+        cn_user_password,
+      </if>
+      <if test="cnUserToken != null">
+        cn_user_token,
+      </if>
+      <if test="cnUserNick != null">
+        cn_user_nick,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cnUserId != null">
+        #{cnUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnUserName != null">
+        #{cnUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="cnUserPassword != null">
+        #{cnUserPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="cnUserToken != null">
+        #{cnUserToken,jdbcType=VARCHAR},
+      </if>
+      <if test="cnUserNick != null">
+        #{cnUserNick,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.feng.note.entity.User">
+    update cn_user
+    <set>
+      <if test="cnUserName != null">
+        cn_user_name = #{cnUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="cnUserPassword != null">
+        cn_user_password = #{cnUserPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="cnUserToken != null">
+        cn_user_token = #{cnUserToken,jdbcType=VARCHAR},
+      </if>
+      <if test="cnUserNick != null">
+        cn_user_nick = #{cnUserNick,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cn_user_id = #{cnUserId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.feng.note.entity.User">
+    update cn_user
+    set cn_user_name = #{cnUserName,jdbcType=VARCHAR},
+      cn_user_password = #{cnUserPassword,jdbcType=VARCHAR},
+      cn_user_token = #{cnUserToken,jdbcType=VARCHAR},
+      cn_user_nick = #{cnUserNick,jdbcType=VARCHAR}
+    where cn_user_id = #{cnUserId,jdbcType=VARCHAR}
+  </update>
+</mapper>

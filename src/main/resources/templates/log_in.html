@@ -3,6 +3,7 @@
 <head>
     <title>hello</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/styles/login.css"/>
 </head>
 <body>
 		<div class="global">
@@ -20,7 +21,7 @@
 					</dt>
 					<dt>
 						<div class="letter">
-							密码:<input type="password" name="" id="password" tabindex="2"/>
+							密  码:<input type="password" name="" id="password" tabindex="2"/>
 						</div>
 					</dt>
 					<dt>
@@ -66,7 +67,7 @@
 							<input type="button" name="" id="regist_button" value="注册" tabindex="9"/>
 							<input type="button" name="" id="back" value="返回" tabindex="10"/>
 								<script th:inline="JavaScript">
-								<![CDATA[
+							<![CDATA[
 							function get(e){
 								return document.getElementById(e);
 							}
@@ -80,6 +81,7 @@
 							}
 							
 							window.onload=function(){
+								alert("d");
 								var t =setTimeout(get("zc").style.visibility="visible",800);
 								get("final_password").onblur=function(){
 									var npassword=get("regist_password").value;
