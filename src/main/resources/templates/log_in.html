@@ -1,110 +1,76 @@
 ﻿<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+ <head th:fragment="header">
     <title>hello</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
     <link rel="stylesheet" href="/styles/login.css"/>
+    <script th:src="@{/js/common/jquery-3.2.1.min.js}"></script>
+    <script th:src="@{/js/log_in.js}"></script>
 </head>
-<body>
+	<body>
 		<div class="global">
-			<div class="log log_in" tabindex="-1" id="dl">
+			<div class="log log_in" tabindex='-1' id='dl'>
 				<dl>
 					<dt>
-						<div class="header">
-							<h3>登录</h3>
+						<div class='header'>
+							<h3>登&nbsp;录</h3>
+						</div>
+					</dt>
+					<dt></dt>
+					<dt>
+						<div class='letter'>
+							用户名:&nbsp;<input type="text" name="count" id="count" tabindex='1'/>
 						</div>
 					</dt>
 					<dt>
-						<div class="letter">
-							用户名:<input type="text" name="" id="count" tabindex="1"/>
-						</div>
-					</dt>
-					<dt>
-						<div class="letter">
-							密  码:<input type="password" name="" id="password" tabindex="2"/>
+						<div class='letter'>
+							密&nbsp;&nbsp;&nbsp;码:&nbsp;<input type="password" name="password" id="password" tabindex='2'/>
 						</div>
 					</dt>
 					<dt>
 						<div>
-							<input type="button" name="" id="login" value="登录" tabindex="3"/>
-							<input type="button" name="" id="sig_in" value="注册" tabindex="4"/>
+							<input type="button" name="login" id="login" value='&nbsp;登&nbsp;录&nbsp;' tabindex='3'/>
+							<input type="button" name="sig_in" id="sig_in" value='&nbsp;注&nbsp;册&nbsp;' tabindex='4'/>
 						</div>
 					</dt>
 				</dl>
 			</div>
-			<div class="sig sig_out" tabindex="-1" id="zc" style="visibility:hidden;">
+			<div class="sig sig_out" tabindex='-1' id='zc' style='visibility:hidden;'>
 				<dl>
 					<dt>
-						<div class="header">
-							<h3>注册</h3>
+						<div class='header'>
+							<h3>注&nbsp;册</h3>
+						</div>
+					</dt>
+					<dt></dt>
+					<dt>
+						<div class='letter'>
+							用户名:&nbsp;<input type="text" name="" id="regist_username" tabindex='5'/>
+							<div class='warning' id='warning_1'><span>该用户名不可用</span></div>
 						</div>
 					</dt>
 					<dt>
-						<div class="letter">
-							用户名:<input type="text" name="" id="regist_username" tabindex="5"/>
-							<div class="warning" id="warning_1"><span>该用户名不可用</span></div>
+						<div class='letter'>
+							昵&nbsp;&nbsp;&nbsp;称:&nbsp;<input type="text" name="" id="nickname" tabindex='6'/>
 						</div>
 					</dt>
 					<dt>
-						<div class="letter">
-							昵称:<input type="text" name="" id="nickname" tabindex="6"/>
+						<div class='letter'>
+							密&nbsp;&nbsp;&nbsp;码:&nbsp;<input type="password" name="" id="regist_password" tabindex='7'/>
+							<div class='warning' id='warning_2'><span>密码长度过短</span></div>
 						</div>
 					</dt>
 					<dt>
-						<div class="letter">
-							密码:<input type="password" name="" id="regist_password" tabindex="7"/>
-							<div class="warning" id="warning_2"><span>密码长度过短</span></div>
-						</div>
-					</dt>
-					<dt>
-						<div class="password">
-							确认密码:<input type="password" name="" id="final_password" tabindex="8"/>
-							<div class="warning" id="warning_3"><span>密码输入不一致</span></div>
+						<div class='password'>
+							&nbsp;&nbsp;&nbsp;确认密码:&nbsp;<input type="password" name="" id="final_password" tabindex='8'/>
+							<div class='warning' id='warning_3'><span>密码输入不一致</span></div>
 						</div>
 					</dt>
 					<dt>
 						<div>
-							<input type="button" name="" id="regist_button" value="注册" tabindex="9"/>
-							<input type="button" name="" id="back" value="返回" tabindex="10"/>
-								<script th:inline="JavaScript">
-							<![CDATA[
-							function get(e){
-								return document.getElementById(e);
-							}
-							get("sig_in").onclick=function(){
-								get("dl").className="log log_out";
-								get("zc").className="sig sig_in";
-							}
-							get("back").onclick=function(){
-								get("zc").className="sig sig_out";
-								get("dl").className="log log_in";
-							}
-							
-							window.onload=function(){
-								alert("d");
-								var t =setTimeout(get("zc").style.visibility="visible",800);
-								get("final_password").onblur=function(){
-									var npassword=get("regist_password").value;
-									var fpassword=get("final_password").value;
-									if(npassword!=fpassword){
-										get("warning_3").style.display="block";
-									}
-								}
-								get("regist_password").onblur=function(){
-									var npassword=get("regist_password").value.length;
-									if(npassword<6&&npassword>0){
-										get("warning_2").style.display="block";
-									}
-								}
-								get("regist_password").onfocus=function(){
-									get("warning_2").style.display="none";
-								}
-								get("final_password").onfocus=function(){
-									get("warning_3").style.display="none";
-								}
-							}
-							]]>
-							</script>
+							<input type="button" name="" id="regist_button" value='&nbsp;注&nbsp;册&nbsp;' tabindex='9'/>
+							<input type="button" name="" id="back" value='&nbsp;返&nbsp;回&nbsp;' tabindex='10'/>
 						</div>
 					</dt>
 				</dl>
