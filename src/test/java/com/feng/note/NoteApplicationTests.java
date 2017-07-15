@@ -23,7 +23,7 @@ public class NoteApplicationTests {
 	
 	@Test
 	public void contextLoads() {
-		System.out.println("11111");
+		System.out.println("KAISHI");
 	}
 
 	@Test
