@@ -11,6 +11,9 @@ import com.feng.note.dao.UserMapper;
 import com.feng.note.entity.User;
 import com.feng.note.service.UserService;
 
+/**
+*测试类
+*/
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class NoteApplicationTests {
