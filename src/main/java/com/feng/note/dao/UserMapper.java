@@ -1,7 +1,10 @@
 package com.feng.note.dao;
 
 import com.feng.note.entity.User;
-
+/**
+* user类接口
+*
+*/
 public interface UserMapper {
     int deleteByPrimaryKey(String cnUserId);
 
