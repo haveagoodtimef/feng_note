@@ -1,6 +1,10 @@
 package com.feng.note.util;
 
 import java.io.Serializable;
+/**
+*返回的信息json格式。
+*
+*/
 
 public class JsonResult<T> implements Serializable {
 
